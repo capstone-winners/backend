@@ -5,6 +5,6 @@ const mqtt = require('./src/MQTT')
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
-console.log(mqtt.client)
+mqtt.device.publish('topic_1', JSON.stringify({ test_data: 1}));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
