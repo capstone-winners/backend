@@ -2,14 +2,14 @@ const mqtt = require('./MQTT')
 
 // mqtt.device.publish('topic_1', JSON.stringify({ test_data: 1}));
 
-function handleAction(type, id, action) {
-    if(validate(type, id, action)) {
+function handleAction(type, deviceId, action) {
+    if(validate(type, deviceId, action)) {
         message = {
-            id,
-            action
+            deviceId,
+            ...action
         }
         mqtt.device.publish(type, JSON.stringify(message))
-        return type + " " + id + "\n" + JSON.stringify(action)
+        return type + " " + deviceId + "\n" + JSON.stringify(action)
     } else {
         return "Error!"
     }
