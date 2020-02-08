@@ -8,8 +8,8 @@ function handleAction(type, id, action) {
             id,
             action
         }
-        mqtt.device.publish(type, message)
-        return type + " " + id + "\n" + action.foo
+        mqtt.device.publish(type, JSON.stringify(message))
+        return type + " " + id + "\n" + JSON.stringify(action)
     } else {
         return "Error!"
     }
