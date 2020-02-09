@@ -11,10 +11,11 @@ var device = awsIot.device({
         keyPath: "certs/private.pem.key",
        certPath: "certs/certificate.pem.crt",
          caPath: "certs/AmazonRootCA1.pem",
-       clientId: "GG-core",
+       clientId: "Jetson-thing",
            host: "a33jti3e3cvwks-ats.iot.us-east-1.amazonaws.com"
      });
 
+console.log(device)
 //
 // Device is an instance returned by mqtt.Client(), see mqtt.js for full
 // documentation.
@@ -23,6 +24,7 @@ device
   .on('connect', function() {
     console.log('connect');
     device.subscribe('topic_1');
+    device.publish('topic_1', JSON.stringify({ test_data: 1}));
   });
 
 device
