@@ -11,7 +11,7 @@ var device = awsIot.device({
         keyPath: "certs/private.pem.key",
        certPath: "certs/certificate.pem.crt",
          caPath: "certs/AmazonRootCA1.pem",
-       clientId: "Jetson-thing",
+       clientId: "Capstone_Jetson",
            host: "a33jti3e3cvwks-ats.iot.us-east-1.amazonaws.com"
      });
 
