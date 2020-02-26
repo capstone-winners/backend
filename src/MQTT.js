@@ -10,26 +10,20 @@ var awsIot = require('aws-iot-device-sdk');
 var device = awsIot.device({
         keyPath: "certs/private.pem.key",
        certPath: "certs/certificate.pem.crt",
-         caPath: "certs/AmazonRootCA1.pem",
-       clientId: "Capstone_Jetson",
-           host: "a33jti3e3cvwks-ats.iot.us-east-1.amazonaws.com"
+         caPath: "certs/gg-CA.crt", //"certs/AmazonRootCA1.pem",
+       clientId: "Capstone_Jetson_2",
+           host: "192.168.99.161", //"a33jti3e3cvwks-ats.iot.us-east-1.amazonaws.com"
+           port: 9000,
+           debug: true
      });
 
-console.log(device)
-//
-// Device is an instance returned by mqtt.Client(), see mqtt.js for full
-// documentation.
-//
 device
   .on('connect', function() {
     console.log('connect');
-    device.subscribe('topic_1');
-    device.publish('topic_1', JSON.stringify({ test_data: 1}));
   });
 
-device
-  .on('message', function(topic, payload) {
-    console.log('message', topic, payload.toString());
-  });
+device.on('error', function(err) { 
+    console.log('error', err); 
+}); 
 
 module.exports = {device}
