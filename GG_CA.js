@@ -16,7 +16,7 @@ var req = https.request(options, function(res) {
                 var jsonObject = JSON.parse(d);
                 console.log(JSON.stringify(jsonObject))
                 console.log(jsonObject.GGGroups[0].CAs)
-                fs.writeFile("gg-CA.crt", jsonObject.GGGroups[0].CAs[0], (err) => {
+                fs.writeFile("certs/gg-CA.crt", jsonObject.GGGroups[0].CAs[0], (err) => {
   if (err) throw err;
   console.log('The file has been saved!');
 });
