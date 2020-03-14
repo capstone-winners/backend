@@ -4,11 +4,11 @@ var fs = require("fs");
 var options = {
         host: 'a33jti3e3cvwks-ats.iot.us-east-1.amazonaws.com',
         port: 8443,
-        path: '/greengrass/discover/thing/Capstone_Jetson_2',
+        path: '/greengrass/discover/thing/Capstone_Jetson',
         method: 'GET',
         key: fs.readFileSync("certs/private.pem.key"),
         cert: fs.readFileSync("certs/certificate.pem.crt"),
-        ca: fs.readFileSync("AmazonRootCA1.pem")
+        ca: fs.readFileSync("certs/AmazonRootCA1.pem")
 };
 
 var req = https.request(options, function(res) {
