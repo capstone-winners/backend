@@ -11,7 +11,7 @@ var device = awsIot.device({
         keyPath: "certs/private.pem.key",
        certPath: "certs/certificate.pem.crt",
          caPath: "certs/gg-CA.crt", //"certs/AmazonRootCA1.pem",
-       clientId: "Capstone_Jetson_2",
+       clientId: "Capstone_Jetson",
            host: "192.168.99.161", //"a33jti3e3cvwks-ats.iot.us-east-1.amazonaws.com"
            port: 9000,
            debug: true
